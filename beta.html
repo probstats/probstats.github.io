@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+ 
+<head>
+    <title>Beta distribution</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/page.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+    <script src="./js/mathjax_config.js"></script>
+</head>
+ 
+<body>
+
+<div class="container">
+
+<h1>Beta distribution</h1>
+
+<div id="chart"></div>
+
+<div class="controls">
+    <div class="slider-label">$\alpha$</div>
+    <div id="slider_0"></div>
+</div>
+
+<div class="controls">
+    <div class="slider-label">$\beta$</div>
+    <div id="slider_1"></div>
+</div>
+
+<div class="formula">
+$$
+    f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{\text{B}(\alpha, \beta)}
+    \\[20pt]
+    \text{where $\text{B}(\alpha, \beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$ and $\Gamma$ is the Gamma function.} \\
+$$
+</div>
+
+</div>
+
+</body>
+
+<script src="./js/rand.js"></script>
+<script src="./js/chart_functions.js"></script>
+<script src="./js/dist/beta.js"></script>
+
+</html>

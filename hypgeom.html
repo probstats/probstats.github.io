@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+ 
+<head>
+    <title>Hypergeometric distribution</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/page.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+    <script src="./js/mathjax_config.js"></script>
+</head>
+ 
+<body>
+
+<div class="container">
+    
+<h1>Hypergeometric distribution</h1>
+
+<p class="description">
+    A jar has $N$ marbles out of which $K$ are blue.
+</p>
+
+<p class="description">
+    Randomly draw $n$ marbles from the jar, how likely $k$ of them are blue?
+</p>
+
+<div id="chart"></div>
+
+<div class="controls">
+    <div class="slider-label">$N$</div>
+    <div id="slider_0"></div>
+</div>
+
+<div class="controls">
+    <div class="slider-label">$K$</div>
+    <div id="slider_1"></div>
+</div>
+
+<div class="controls">
+    <div class="slider-label">$n$</div>
+    <div id="slider_2"></div>
+</div>
+
+<div class="formula">
+$$
+    p(k) = \frac{{K \choose k}{N-K \choose n-k}}{{N \choose n}}
+    \\[16pt]
+    \text{where $N$ is the population size,}\\
+    \text{$K$ is the number of success states in the population, }\\
+    \text{and $n$ is the number of draws.}
+$$
+</div>
+
+<script src="./js/rand.js"></script>
+<script src="./js/chart_functions.js"></script>
+<script src="./js/dist/hypgeom.js"></script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+.slider {
+  width: 600px;
+}
+
+.axis path,
+.axis line {
+  stroke: black;  
+}
+ 
+path {
+    stroke-width: 1;
+    fill: none;
+}
+ 
+.line {
+  stroke: red;
+  stroke-width: 5;
+  opacity: 0.6;
+}
+
+.line_reference {
+  stroke: green;
+  stroke-width: 5;
+  opacity: 0.6;
+}
+
+.bar {
+  fill: red;
+  opacity: 0.8;
+}
+
+.area {
+  fill: lightsteelblue;
+  opacity: 0.5;
+}
+
+.x-axis, .y-axis {
+  font-size: 1em;
+  font-family: sans-serif;
+}
+
+.mean{
+  stroke-dasharray: 5,5; 
+  stroke-width: 2;
+  stroke: lightgray;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+ 
+<head>
+    <title>Chi-square distribution</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/page.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+    <script src="./js/mathjax_config.js"></script>
+</head>
+ 
+<body>
+
+<div class="container">
+
+<h1>Chi-square distribution</h1>
+
+<p class="description">
+    A sum of the squares of $k$ independent <a href="./standardnormal.html">standard normal</a> random variables
+</p>
+
+<div id="chart"></div>
+
+<div class="controls">
+    <div class="slider-label">$k$</div>
+    <div id="slider_0"></div>
+</div>
+
+<div class="formula">
+$$
+    Z_1^2 + Z_2^2 + \cdots + Z_k^2 \;\sim\; \chi^2(k) 
+$$
+</div>
+
+<div class="formula">
+$$
+    f(x) = 
+    \begin{cases}
+        \frac{x^{\frac{k}{2}-1}e^{-\frac{x}{2}}}{2^{\frac{k}{2}}\Gamma\big(\frac{k}{2}\big)}, & \text{if $x > 0$,} \\
+        0,                      & \text{otherwise.}
+    \end{cases}
+    \\[24pt]
+    \text{where $k$ is the degree of freedom (the number of the squares)} \\
+    \\
+    \text{and $\Gamma\bigg(\frac{k}{2}\bigg)$ is the gamma function.}
+$$
+</div>
+
+<script src="./js/rand.js"></script>
+<script src="./js/chart_functions.js"></script>
+<script src="./js/dist/chisquare.js"></script>
+
+</div>
+
+</body>
+</html>

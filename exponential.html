@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+ 
+<head>
+    <title>Exponential distribution</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/page.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+    <script src="./js/mathjax_config.js"></script>
+</head>
+ 
+<body>
+
+<div class="container">
+
+<h1>Exponential distribution</h1>
+
+<div id="chart"></div>
+
+<div class="controls">
+    <div class="slider-label">$\lambda$</div>
+    <div id="slider_0"></div>
+</div>
+
+<div class="formula">
+$$
+    f(x) = 
+    \begin{cases}
+        \lambda e^{-\lambda x}, & \text{if $x \geq 0$,} \\
+        0,                      & \text{otherwise.}
+    \end{cases}
+    \\[16pt]
+    \text{where $\lambda$ is the average event rate.}
+$$
+</div>
+
+<script src="./js/rand.js"></script>
+<script src="./js/chart_functions.js"></script>
+<script src="./js/dist/exponential.js"></script>
+
+</div>
+
+</body>
+</html>

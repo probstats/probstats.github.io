@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+ 
+<head>
+    <title>Standard normal distribution</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/page.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+    <script src="./js/mathjax_config.js"></script>
+</head>
+ 
+<body>
+
+<div class="container">
+
+<h1>Standard normal distribution</h1>
+
+<p class="description">
+    A normal distribution with mean of 0 and variance of 1. 
+</p>
+
+
+<div id="chart"></div>
+
+<div class="formula">
+$$
+f(x)=\frac{1}{\sqrt{2\pi}}\exp \bigg(-\frac{1}{2}x^2\bigg)
+$$
+</div>
+
+</div>
+
+</body>
+
+<script src="./js/rand.js"></script>
+<script src="./js/chart_functions.js"></script>
+<script src="./js/dist/standardnormal.js"></script>
+
+</html>

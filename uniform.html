@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+ 
+<head>
+    <title>Uniform distribution</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/page.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+    <script src="./js/mathjax_config.js"></script>
+</head>
+ 
+<body>
+
+<div class="container">
+
+<h1>Uniform distribution</h1>
+
+<div id="chart"></div>
+
+<div class="controls">
+    <div class="slider-label"></div>
+    <div id="slider_0"></div>
+</div>
+
+<div class="formula">
+$$
+    f(x) = 
+    \begin{cases}
+        \frac{1}{b-a}, & \text{if $a \leq x \leq b$,} \\
+        0,              & \text{otherwise.}
+    \end{cases}
+    \\[16pt]
+    \text{where $a$ and $b$ are the lower and upper bound of the interval.}
+$$
+</div>
+
+<script src="./js/rand.js"></script>
+<script src="./js/chart_functions.js"></script>
+<script src="./js/dist/uniform.js"></script>
+
+</div>
+
+</body>
+</html>

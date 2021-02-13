@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+
+body {
+	font-family: 'Roboto', serif;
+	font-size: 16pt;
+	line-height: 140%;
+	text-align: left;
+	margin: 0;
+}
+.container {
+	width: 800px;
+	margin: 0px auto;
+}
+
+main {
+	padding: 10px;
+	clear: both;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+li {
+	padding-bottom: 12px;
+}
+
+a:link, a:visited, a:active, a:hover {
+	color: #0645AD;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.dist-category {
+	font-size: 18pt;
+	margin-bottom: 0px;
+}
+
+#distributions {
+	width: 100%;
+	margin-left: auto; 
+	margin-right: auto;
+	vertical-align: top;
+}
+
+table, th, td {
+	vertical-align: top;
+	padding-left:30px;
+}
+
+th {
+	padding-bottom: 0px;
+}
+
+footer {
+	font-size: 11pt;
+	width: 800px;
+	margin: 0px auto;
+	padding-top: 5px;
+	padding-bottom: 5px;	
+}
+footer p {
+	padding-left: 40px;
+	line-height: 100%;
+}
+
+#site-footer {
+	background: #F5F5F5;
+}

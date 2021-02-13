@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+	font-family: 'Roboto', serif;
+	text-align: center;
+	padding-bottom: 60px;
+}
+
+.container {
+	width: 750px;
+	margin: 0px auto;
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+
+.description {
+	color: blue;
+	font-size: 16pt;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.formula {
+	font-size: 16pt;
+	padding-bottom: 0px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.slider-label {
+	font-size: 16pt;
+  margin-top: -4px;
+  text-align: justify;
+  float:left;
+  }
+
+.controls {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+#slider_0 {
+  margin-left: 50px;
+}
+
+#slider_1 {
+  margin-left: 50px;
+}
+
+#slider_2 {
+  margin-left: 50px;
+}
+
+.noUi-connect {
+  background: #00274C !important;     /* michigan blue */
+}

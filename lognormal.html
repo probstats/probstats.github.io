@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+ 
+<head>
+    <title>Lognormal distribution</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/page.css">
+    <link type="text/css" rel="stylesheet" media="screen" href="./css/chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"/>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+    <script src="./js/mathjax_config.js"></script>
+</head>
+ 
+<body>
+
+<div class="container">
+
+<h1>Lognormal distribution</h1>
+
+<p class="description">
+    A random variable whose logarithm is <a href="./normal.html">normally distributed</a>
+</p>
+
+<div id="chart"></div>
+
+<div class="controls">
+    <div class="slider-label">$\mu$</div>
+    <div id="slider_0"></div>
+</div>
+
+<div class="controls">
+    <div class="slider-label">$\sigma$</div>
+    <div id="slider_1"></div>
+</div>
+
+<div class="formula">
+    $$
+    f(x)=\frac{1}{x\sigma\sqrt{2\pi}}\exp \bigg(-\frac{(\ln x-\mu)^2}{2\sigma^2}\bigg)
+    \\[16pt]
+    \text{where $\mu$ is the mean and $\sigma$ is the standard deviation of a} \\
+    \text{normally distributed random variable $Y$ such that $Y=\ln X$.}
+    $$
+</div>
+
+</div>
+
+</body>
+
+<script src="./js/rand.js"></script>
+<script src="./js/chart_functions.js"></script>
+<script src="./js/dist/lognormal.js"></script>
+
+</html>
