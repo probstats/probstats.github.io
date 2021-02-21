@@ -8,13 +8,14 @@ function update_bars(dist_name, params){
     var data = generate_data(dist_name, params);
 
     bars = svg.selectAll("bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d[0]) })
-      .attr("width", x.bandwidth())
-      .attr("y", function(d) { return y(d[1]) })
-      .attr("height", function(d) { return height - y(d[1]) });
+              .data(data)
+              .enter()
+              .append("rect")
+              .attr("class", "bar")
+              .attr("x", d => x(d[0]))
+              .attr("width", x.bandwidth())
+              .attr("y", d => y(d[1]))
+              .attr("height", d => height - y(d[1]));
 
     mouseover_bars();
 }
@@ -23,11 +24,11 @@ function mouseover_bars(){
 
     bars.on("mouseover", function() {
         d3.select(this)
-            .style("fill", "#b30000");     // dark red
+          .style("fill", "#b30000");     // dark red
         })
-      .on("mouseout", function() {
+        .on("mouseout", function() {
         d3.select(this)
-            .style("fill", "red");
+          .style("fill", "red");
         }); 
 }
 
@@ -38,15 +39,15 @@ function update_line(dist_name, params) {
     d3.selectAll(".line").remove();  // clear chart
 
     var line = d3.line()
-    .x(function(d) { return x(d[0]) })
-    .y(function(d) { return y(d[1]) });
+                 .x(d => x(d[0]))
+                 .y(d => y(d[1]));
 
     var data = generate_data(dist_name, params);
 
     path = svg.append('path')
-    .attr("class", "line")
-    .datum(data)
-    .attr("d", line);
+              .attr("class", "line")
+              .datum(data)
+              .attr("d", line);
 }
 
 
@@ -54,15 +55,15 @@ function update_line(dist_name, params) {
 function add_ref_line(dist_name, params) {
 
     var line = d3.line()
-    .x(function(d) { return x(d[0]) })
-    .y(function(d) { return y(d[1]) });
+                 .x(d => x(d[0]))
+                 .y(d => y(d[1]));
 
     var data = generate_data(dist_name, params);
 
     path = svg.append('path')
-    .attr("class", "line_reference")
-    .datum(data)
-    .attr("d", line);
+              .attr("class", "line_reference")
+              .datum(data)
+              .attr("d", line);
 }
 
 
@@ -74,20 +75,18 @@ function initial_transition_bars(dist_name, params) {
     update_bars(dist_name, params);
 
     // add transition
-    bars.attr("y",  function(d) { return height; })
+    bars.attr("y",  height)
         .attr("height", 0)
         .transition()
         .duration(700)
-        .delay(function (d, i) {
-            return i * 50;
-        })
-        .attr("y", function(d) { return y(d[1]) })
-        .attr("height", function(d) { return height - y(d[1]) })
+        .delay((d, i) => i * 50)
+        .attr("y", d => y(d[1]))
+        .attr("height", d => height - y(d[1]))
         .on("end", function() {update_bar_values(dist_name, params)});
 }
 
 
-var bar_value_dist_list = ["bernoulli"];
+var bar_value_dist_list = ["bernoulli"];      // list of distributions that display bar values
 
 function update_bar_values(dist_name, params){
 
@@ -98,13 +97,14 @@ function update_bar_values(dist_name, params){
     var data = generate_data(dist_name, params);
 
     svg.selectAll("text.bar")
-      .data(data)
-    .enter().append("text")
-        .attr("class", "bar-value")
-        .attr("text-anchor", "middle")
-        .attr("x", function(d) { return x(d[0]) + x.bandwidth()/2; })
-        .attr("y", function(d) { return y(d[1])-8; })
-        .text(function(d) { var d_display = +d[1]; return d_display.toFixed(2); });
+       .data(data)
+       .enter()
+       .append("text")
+       .attr("class", "bar-value")
+       .attr("text-anchor", "middle")
+       .attr("x", d => x(d[0]) + x.bandwidth()/2)
+       .attr("y", d => y(d[1]) - 8)                // add some padding
+       .text(d => d[1].toFixed(2));
     }
 }
 
@@ -120,8 +120,8 @@ function initial_transition_line(dist_name, params) {
     var totalLength = path.node().getTotalLength();
 
     path.attr("stroke-dasharray", totalLength + " " + totalLength)
-    .attr("stroke-dashoffset", totalLength)
-    .transition()
+        .attr("stroke-dashoffset", totalLength)
+        .transition()
         .duration(1000)
         .ease(d3.easeLinear)
         .attr("stroke-dashoffset", 0) // Set final value of dash-offset for transition
@@ -129,7 +129,7 @@ function initial_transition_line(dist_name, params) {
 }
 
 
-var mean_dist_list = ["normal", "standard_normal", "triangular"];
+var mean_dist_list = ["normal", "standard_normal", "triangular"];   // list of distributions that display the mean (or mode, etc.)
 
 function update_aid_lines(dist_name, params){
 
