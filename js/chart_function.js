@@ -1,5 +1,5 @@
 // main function for updating chart
-function update_chart(dist_name, dist_type, params){  
+function update_chart(dist_name, dist_type, params, ref=false){  
 
     d3.selectAll(".bar, .line").remove();  // clear chart
 
@@ -26,10 +26,19 @@ function update_chart(dist_name, dist_type, params){
                     .x(d => xScale(d[0]))
                     .y(d => yScale(d[1]));
 
-        path = svg.append('path')
-                    .attr("class", "line")
-                    .datum(data)
-                    .attr("d", line);
+        if (ref == false) {
+
+            path = svg.append('path')
+                        .attr("class", "line")
+                        .datum(data)
+                        .attr("d", line);
+        }
+        else {
+            path = svg.append('path')
+                        .attr("class", "line_reference")
+                        .datum(data)
+                        .attr("d", line);
+        }
     
     }
 }
@@ -46,28 +55,11 @@ function mouseover_bars(){
         }); 
 }
 
-// add reference line
-function add_ref_line(dist_name, params) {
-
-    var line = d3.line()
-                 .x(d => xScale(d[0]))
-                 .y(d => yScale(d[1]));
-
-    var data = generate_data(dist_name, dist_type, params);
-
-    path = svg.append('path')
-              .attr("class", "line_reference")
-              .datum(data)
-              .attr("d", line);
-}
-
-
 // initial transition
 function initial_transition(dist_name, dist_type, params) {
 
     d3.selectAll(".bar, .bar-value").remove();  // clear chart
     d3.selectAll(".mean").remove();  // clear chart
-
 
     update_chart(dist_name, dist_type, params);
 
@@ -99,7 +91,7 @@ function initial_transition(dist_name, dist_type, params) {
 }
 
 // display bar values for some discrete distributions
-var bar_value_dist_list = ["bernoulli", "uniform_discrete"];      // list of distributions that display bar values
+const bar_value_dist_list = ["bernoulli", "uniform_discrete"];      // list of distributions that display bar values
 
 function update_bar_values(dist_name, params){
 
@@ -121,8 +113,8 @@ function update_bar_values(dist_name, params){
     }
 }
 
-// display aid lines (e.g., mean, mode, etc.)
-var mean_dist_list = ["normal", "standard_normal", "triangular"];
+// display vertical aid lines (e.g., mean, mode, etc.)
+const mean_dist_list = ["normal", "standard_normal", "triangular"];
 
 function update_aid_lines(dist_name, params){
 

@@ -12,7 +12,7 @@ const slider_config = "1-slider";
 const slider_0 = document.getElementById('slider_0');
 
 noUiSlider.create(slider_0, {
-    start: params[0],
+    start: lambda,
     step: 0.01,
     tooltips: true,
     range: {

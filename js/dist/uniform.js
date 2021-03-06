@@ -14,7 +14,7 @@ const slider_0 = document.getElementById('slider_0');
 noUiSlider.create(slider_0, {
     start: [a, b],
     step: 0.01,
-    margin: 0.9,     // minimum distance between the handles
+    margin: 0.9,     // minimum distance between handles
     connect: [false, true, false],
     tooltips: [wNumb({decimals: 2}), wNumb({decimals: 2})],
     range: {

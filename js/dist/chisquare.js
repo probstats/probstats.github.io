@@ -20,10 +20,3 @@ noUiSlider.create(slider_0, {
         'max': 12
     }
 });
-
-// slider_0.noUiSlider.on('update', function() {
-//     params[0] = +slider_0.noUiSlider.get();
-//     update_line(dist_name, params);
-// });
-
-// initial_transition_line(dist_name, params);

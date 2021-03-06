@@ -22,13 +22,3 @@ noUiSlider.create(slider_0, {
         'max': 10
     }
 });
-
-// slider_0.noUiSlider.on('update', function() {
-//     params[0] = +slider_0.noUiSlider.get()[0];
-//     params[1] = +slider_0.noUiSlider.get()[2];
-//     params[2] = +slider_0.noUiSlider.get()[1];
-//     update_aid_lines(dist_name, params);
-//     update_line(dist_name, params);
-// });
-
-// initial_transition_line(dist_name, params);

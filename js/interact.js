@@ -70,8 +70,3 @@ else if (slider_config == "1-slider-3-handles") {
 }
 
 initial_transition(dist_name, dist_type, params);
-
-
-if (dist_name == "studentt") {
-    add_ref_line("normal", [0, 1])   // add standard normal dist as a reference
-}

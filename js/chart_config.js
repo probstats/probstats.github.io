@@ -17,10 +17,16 @@ if (dist_type == "continuous") {
     xScale = d3.scaleLinear()
         .domain(xRange)
         .range([0, innerWidth]);
+
+    svg.append("g")
+        .attr("class", "x-axis")
+        .attr("transform", "translate(0," + innerHeight + ")")
+        .call(d3.axisBottom(xScale)
+        );
 }
 else if (dist_type == "discrete") {
 
-    if (dist_name == "bernoulli") {    // special treatment for bernoulli
+    if (dist_name == "bernoulli") {    // special treatment for Bernoulli
         xScale = d3.scaleBand()
         .domain([-1, 0, 1, 2])
         .rangeRound([0, innerWidth], 0.1)
@@ -33,28 +39,18 @@ else if (dist_type == "discrete") {
         .paddingInner(0.4);
     }
 
+    svg.append("g")
+        .attr("class", "x-axis")
+        .attr("transform", "translate(0," + innerHeight + ")")
+        .call(d3.axisBottom(xScale)
+            .tickValues(d3.range(xRange[0], xRange[1]+1, (xRange[1] - xRange[0] > 20) ? 5 : 1))
+        );
+
 }
 
 const yScale = d3.scaleLinear()
         .domain(yRange)
         .range([innerHeight, 0]);
-
-if (dist_type == "continuous") {
-    svg.append("g")
-    .attr("class", "x-axis")
-    .attr("transform", "translate(0," + innerHeight + ")")
-    .call(d3.axisBottom(xScale)
-    );
-}
-else if (dist_type == "discrete") {
-
-    svg.append("g")
-    .attr("class", "x-axis")
-    .attr("transform", "translate(0," + innerHeight + ")")
-    .call(d3.axisBottom(xScale)
-        .tickValues(d3.range(xRange[0], xRange[1]+1, (xRange[1] - xRange[0] > 20) ? 5 : 1))
-    );
-}
 
 svg.append("g")
     .attr("class", "y-axis")    

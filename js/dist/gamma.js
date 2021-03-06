@@ -31,4 +31,3 @@ noUiSlider.create(slider_1, {
         'max': 5
     }
 });
-
