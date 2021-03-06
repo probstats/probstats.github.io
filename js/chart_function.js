@@ -1,13 +1,26 @@
-// main function for updating chart
-function update_chart(dist_name, dist_type, params, ref=false){  
+
+function update_chart(dist_name, dist_type, params){  
 
     d3.selectAll(".bar, .line").remove();  // clear chart
 
-    var data = generate_data(dist_name, dist_type, params); 
-
     if (dist_type == "discrete") {
 
-        bars = svg.selectAll("bar")
+        plot_bars(dist_name, dist_type, params);
+        mouseover_bars();
+
+    }
+    else if (dist_type == "continuous") {
+
+        plot_line(dist_name, dist_type, params);
+
+    }
+}
+
+function plot_bars(dist_name, dist_type, params) {
+
+    var data = generate_data(dist_name, dist_type, params); 
+
+    bars = svg.selectAll("bar")
                 .data(data)
                 .enter()
                 .append("rect")
@@ -17,33 +30,9 @@ function update_chart(dist_name, dist_type, params, ref=false){
                 .attr("y", d => yScale(d[1]))
                 .attr("height", d => innerHeight - yScale(d[1]));
 
-            mouseover_bars();
-    }
-
-    else if (dist_type == "continuous") {
-
-        var line = d3.line()
-                    .x(d => xScale(d[0]))
-                    .y(d => yScale(d[1]));
-
-        if (ref == false) {
-
-            path = svg.append('path')
-                        .attr("class", "line")
-                        .datum(data)
-                        .attr("d", line);
-        }
-        else {
-            path = svg.append('path')
-                        .attr("class", "line_reference")
-                        .datum(data)
-                        .attr("d", line);
-        }
-    
-    }
 }
 
-function mouseover_bars(){
+function mouseover_bars() {
 
     bars.on("mouseover", function() {
         d3.select(this)
@@ -55,7 +44,28 @@ function mouseover_bars(){
         }); 
 }
 
-// initial transition
+function plot_line(dist_name, dist_type, params, ref=false) {
+
+    var data = generate_data(dist_name, dist_type, params); 
+
+    var line = d3.line()
+                 .x(d => xScale(d[0]))
+                 .y(d => yScale(d[1]));
+
+    if (ref == false) {
+        path = svg.append('path')
+                    .attr("class", "line")
+                    .datum(data)
+                    .attr("d", line);
+    }
+    else {
+        path = svg.append('path')
+                    .attr("class", "line_reference")
+                    .datum(data)
+                    .attr("d", line);
+    }
+}
+
 function initial_transition(dist_name, dist_type, params) {
 
     d3.selectAll(".bar, .bar-value").remove();  // clear chart
@@ -90,7 +100,7 @@ function initial_transition(dist_name, dist_type, params) {
     }
 }
 
-// display bar values for some discrete distributions
+// display values on top of bars for some discrete distributions
 const bar_value_dist_list = ["bernoulli", "uniform_discrete"];      // list of distributions that display bar values
 
 function update_bar_values(dist_name, params){

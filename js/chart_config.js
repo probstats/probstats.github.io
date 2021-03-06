@@ -5,11 +5,11 @@ const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
 const svg = d3.select("#chart")
-    .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-    .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+              .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+              .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var xScale;
 
