@@ -7,6 +7,16 @@ function generate_data(dist_name, dist_type, params) {
 
         // discrete distributions 
 
+        case "benford": 
+        var pdf = function(x, params) {
+            const base = params[0];
+            var pmf;
+            if(x < base) { pmf = Math.log(1+1/x) / Math.log(base) } else { pmf = 0 }
+            // pmf = Math.log10(1+1/x);
+            return pmf;
+        };
+        break;
+
         case "bernoulli": 
             var pdf = function(x, params) {
                 const p = params[0];
@@ -178,8 +188,6 @@ function generate_data(dist_name, dist_type, params) {
         stop = xRange[1] + 1;
         step = 1;
     }
-
-    // var start = 0, stop = 2, step = 1;
 
     for (let x = start; x < stop; x += step) { 
         data.push([x, pdf(x, params)]);

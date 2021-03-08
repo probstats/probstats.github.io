@@ -101,7 +101,7 @@ function initial_transition(dist_name, dist_type, params) {
 }
 
 // display values on top of bars for some discrete distributions
-const bar_value_dist_list = ["bernoulli", "uniform_discrete"];      // list of distributions that display bar values
+const bar_value_dist_list = ["benford", "bernoulli", "uniform_discrete"];      // list of distributions that display bar values
 
 function update_bar_values(dist_name, params){
 
