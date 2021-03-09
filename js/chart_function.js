@@ -119,7 +119,17 @@ function update_bar_values(dist_name, params){
        .attr("text-anchor", "middle")
        .attr("x", d => xScale(d[0]) + xScale.bandwidth()/2)
        .attr("y", d => yScale(d[1]) - 8)                // add some padding
-       .text(d => (d[1] > 0) ? "." + d[1].toFixed(3).toString().split('.')[1] : "");   // only display values greater than 0 
+       .text(d => {
+           if (d[1] > 0) {
+               if (dist_name == "bernoulli") {   // special treatment for bernoulli
+                  return d[1].toFixed(2);
+               }
+               else {
+                  return "." + d[1].toFixed(3).toString().split(".")[1];
+               }
+           }
+        });   // only display values greater than 0 
+    //    .text(d => (d[1] > 0) ? "." + d[1].toFixed(3).toString().split('.')[1] : "");   // only display values greater than 0 
     //    .text(d => (d[1] > 0) ? d[1].toFixed(2) : "");   // only display values greater than 0 
     }
 }
@@ -158,7 +168,7 @@ function update_aid_lines(dist_name, params){
     svg.append("line")
         .attr("class", "mean")
         .attr("x1", xScale(x_aid))
-        .attr("y1", yScale(height_aid)+5)  // add a few pixels to avoid overlapping
+        .attr("y1", yScale(height_aid)+4)  // add a few pixels to avoid overlapping
         .attr("x2", xScale(x_aid))
         .attr("y2", innerHeight);
     }
