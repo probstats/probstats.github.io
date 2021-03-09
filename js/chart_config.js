@@ -32,6 +32,12 @@ else if (dist_type == "discrete") {
         .rangeRound([0, innerWidth], 0.1)
         .paddingInner(0.85);
     }
+    else if (dist_name == "benford") {    // special treatment for Bernoulli
+        xScale = d3.scaleBand()
+        .domain([d3.range(10), "A", "B", "C", "D", "E", "F"].flat())
+        .rangeRound([0, innerWidth], 0.1)
+        .paddingInner(0.4);
+    }
     else {
         xScale = d3.scaleBand()
         .domain(d3.range(xRange[1]+1))
@@ -39,12 +45,22 @@ else if (dist_type == "discrete") {
         .paddingInner(0.4);
     }
 
+    if (dist_name == "benford") {
+        svg.append("g")
+        .attr("class", "x-axis")
+        .attr("transform", "translate(0," + innerHeight + ")")
+        .call(d3.axisBottom(xScale)
+            .tickValues([d3.range(1, 10), "A", "B", "C", "D", "E", "F"].flat())
+        );
+    }
+    else {
     svg.append("g")
         .attr("class", "x-axis")
         .attr("transform", "translate(0," + innerHeight + ")")
         .call(d3.axisBottom(xScale)
             .tickValues(d3.range(xRange[0], xRange[1]+1, (xRange[1] - xRange[0] > 20) ? 5 : 1))
         );
+    }
 
 }
 
@@ -54,4 +70,6 @@ const yScale = d3.scaleLinear()
 
 svg.append("g")
     .attr("class", "y-axis")    
-    .call(d3.axisLeft(yScale));
+    .call(d3.axisLeft(yScale)
+        .ticks(5)
+    );

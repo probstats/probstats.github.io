@@ -195,8 +195,36 @@ function generate_data(dist_name, dist_type, params) {
         step = 1;
     }
 
-    for (let x = start; x < stop; x += step) { 
-        data.push([x, pdf(x, params)]);
+    if (dist_name == "benford") {
+        // start = 1;
+        for (let x = start; x < stop; x += step) {
+            if (x < 10) {
+                data.push([x, pdf(x, params)]);
+            }
+            else if (x == 10) {
+                data.push(["A", pdf(x, params)]);
+            }
+            else if (x == 11) {
+                data.push(["B", pdf(x, params)]);
+            }
+            else if (x == 12) {
+                data.push(["C", pdf(x, params)]);
+            }
+            else if (x == 13) {
+                data.push(["D", pdf(x, params)]);
+            }
+            else if (x == 14) {
+                data.push(["E", pdf(x, params)]);
+            }
+            else if (x == 15) {
+                data.push(["F", pdf(x, params)]);
+            }
+        }
+    }
+    else {
+        for (let x = start; x < stop; x += step) { 
+            data.push([x, pdf(x, params)]);
+        }
     }
 
     return data;

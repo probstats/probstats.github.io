@@ -5,7 +5,7 @@ const dist_type = "discrete";
 const params = [n=20, p=0.5];    // set initial params
 
 const xRange = [0, 100];
-const yRange = [0, 0.26];
+const yRange = [0, 0.25];
 
 const slider_config = "2-sliders";
 

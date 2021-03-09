@@ -5,7 +5,7 @@ const dist_type = "continuous";
 const params = [shape=1, scale=1];  // set initial params
 
 const xRange = [0, 5];
-const yRange = [0, 2.6];
+const yRange = [0, 2.5];
 
 const slider_config = "2-sliders";
 
