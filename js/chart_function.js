@@ -119,7 +119,8 @@ function update_bar_values(dist_name, params){
        .attr("text-anchor", "middle")
        .attr("x", d => xScale(d[0]) + xScale.bandwidth()/2)
        .attr("y", d => yScale(d[1]) - 8)                // add some padding
-       .text(d => (d[1] > 0) ? d[1].toFixed(2) : "");   // only display values greater than 0 
+       .text(d => (d[1] > 0) ? "." + d[1].toFixed(3).toString().split('.')[1] : "");   // only display values greater than 0 
+    //    .text(d => (d[1] > 0) ? d[1].toFixed(2) : "");   // only display values greater than 0 
     }
 }
 

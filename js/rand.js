@@ -11,8 +11,7 @@ function generate_data(dist_name, dist_type, params) {
         var pdf = function(x, params) {
             const base = params[0];
             var pmf;
-            if(x < base) { pmf = Math.log(1+1/x) / Math.log(base) } else { pmf = 0 }
-            // pmf = Math.log10(1+1/x);
+            if (x < base) { pmf = Math.log(1+1/x) / Math.log(base) } else { pmf = 0 }
             return pmf;
         };
         break;
@@ -21,7 +20,7 @@ function generate_data(dist_name, dist_type, params) {
             var pdf = function(x, params) {
                 const p = params[0];
                 var pmf;
-                if(x == 1) { pmf = p } else if(x == 0) { pmf = 1-p } else { pmf = 0 }
+                if (x == 1) { pmf = p } else if(x == 0) { pmf = 1-p } else { pmf = 0 }
                 return pmf;
             };
             break;
@@ -134,6 +133,13 @@ function generate_data(dist_name, dist_type, params) {
                 const xm = params[0];
                 const shape = params[1];
                 return jStat.pareto.pdf(x, xm, shape);
+            }
+            break;
+
+        case "rayleigh": 
+            var pdf = function(x, params) {
+                const sigma = params[0];
+                return (x >= 0) ? x/Math.pow(sigma,2)*Math.exp(-Math.pow(x,2)/2/Math.pow(sigma,2)) : 0;
             }
             break;
 
